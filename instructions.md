@@ -37,3 +37,8 @@ compile:file(foo, [to_core, binary]).
 1> {ok, foo, Core} = compile:file(foo, [to_core, binary]).
 2> {ok, foo, Bin} = compile:forms(Core, [from_core, binary]).
 ```
+
+```erland
+1> c(world, ['S']).
+2> {ok, BEAM_Code} = file:consult("world.S").
+```
