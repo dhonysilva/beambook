@@ -71,3 +71,18 @@ process_ingo(whereis(code_server), backtrace).
 ```erlang
 erlang:process_display(self(), backtrace).
 ```
+
+### 3.5 Milboxes and Message Passing
+
+Process communication is done throught message passing. A process send is implemented so that a sending process copies the message from its own heap to the mailbox of the receiving process.
+
+### 3.6 Lock Free Message Passing
+
+### 3.7 The Process Dictionay
+
+```erlang
+1> Ps = erlang:processes()
+2> P = self().
+3> erlang:process_info(P).
+4> lists:keysort(2, [{P, element(2, erlang:process_info(P, total_heap_size))} || P <- Ps]).
+```
