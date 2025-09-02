@@ -118,3 +118,5 @@ Subtags:
 ### 4.5.1 Tuples
 
 I'll come back to this subject later as it very important to understand it. Focus on larn how to draw the memory allocation.
+
+## 5 The Erlang Virtual Machine: BEAM
