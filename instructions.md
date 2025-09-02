@@ -86,3 +86,35 @@ Process communication is done throught message passing. A process send is implem
 3> erlang:process_info(P).
 4> lists:keysort(2, [{P, element(2, erlang:process_info(P, total_heap_size))} || P <- Ps]).
 ```
+
+## The Erlang Type System and Tags
+
+### 4.3 Lists
+
+Since each cons cell is identified by the tag in the pointer to the cell, there is no need for a separate header word, and a cons cell `[A|B]` thus uses 33% less memorey than a boxed 2-tuple `{A, B}`. This is also reflcted by a corresponding speed improvement, since only two heap words need to be initialized rather than three. Therefore, lists are the preferred temporary data structure for sequences of times.
+
+## Boxed Terms
+
+Subtags:
+
+```
+0000 00 ARITYVAL (Tuples)
+0001 00 BINARY_AGGREGATE                  |
+001s 00 BIGNUM with sigh bit              |
+0100 00 REF                               |
+0101 00 FUN                               | THINGS
+0110 00 FLONUM                            |
+0111 00 EXPORT                            |
+1000 00 REFC_BINARY     |                 |
+1001 00 HEAP_BINARY     | BINARIES        |
+1010 00 SUB_BINARY      |                 |
+1011 00   [UNUSED]
+1100 00 EXTERNAL_PID    |                 |
+1101 00 EXTERNAL_PORT   | EXTERNAL THINGS |
+1110 00 EXTERNAL_REF    |                 |
+1111 00 MAP
+```
+
+### 4.5.1 Tuples
+
+I'll come back to this subject later as it very important to understand it. Focus on larn how to draw the memory allocation.
