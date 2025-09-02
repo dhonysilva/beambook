@@ -120,3 +120,12 @@ Subtags:
 I'll come back to this subject later as it very important to understand it. Focus on larn how to draw the memory allocation.
 
 ## 5 The Erlang Virtual Machine: BEAM
+
+## 6 Modules and The BEAM File Format
+
+Erlang's distribution model and hot code loading feature make it possible to update code across multiple nodes in a distributed system. It's a complex task that requires careful coordination.
+
+```erlang
+1> c(beamfile1). # generate the beamfile.beam 
+2> beamfile1:read("beamfile1.beam").
+```
