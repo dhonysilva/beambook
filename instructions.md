@@ -136,3 +136,32 @@ specific
 generic
 
 ### 7.3
+
+
+## 8 Different Types of Calls, Linking and Hot Code Loading
+
+A common way of wrigin server loops is to have a local call for the main loop and a code upgrade handler which dos a remote call possibily a stage upgrade:
+
+```erlang
+loop(Stage) ->
+    receive
+        upgrade ->
+            NewState = ?MODULE:code_upgrade(State),
+            ?MODULE:loop(NewState);
+        Msg ->
+            NewState = handle_msg(Msg, State),
+            loop(NewState)
+    end.
+```
+
+This is basically what `gen_server` does.
+
+### 8.5 Closure calls
+
+Closures in Erlang are functions to be passed as values, capturing variables from their defining scope.
+
+Closures enable dynamic execution and are commonly used in higher-order functions.
+
+### Higher-order functions
+
+Higher-order functions allow passing behavior dinamically.
