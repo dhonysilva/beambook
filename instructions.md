@@ -134,3 +134,5 @@ Erlang's distribution model and hot code loading feature make it possible to upd
 
 specific
 generic
+
+### 7.3
