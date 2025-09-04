@@ -165,3 +165,14 @@ Closures enable dynamic execution and are commonly used in higher-order function
 ### Higher-order functions
 
 Higher-order functions allow passing behavior dinamically.
+
+
+## 11 The Memory Subsystem: Stacks, Heaps and Allocators
+
+The atom table
+
+Atoms in Erlang are unique identifiers represented as integers internally. All atoms are stored in a global structure known as the atom table. The atom table is a fixed -size structure, meaning there's an upper limit to how many atoms can exist in a running Erlang system.
+
+* `atom_text`: contains the string representation of the atoms
+* `atom_tab`: stores the atom table itself
+* `atom_entry`: allocates memory for each atom's metadata
