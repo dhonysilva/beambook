@@ -176,3 +176,5 @@ Atoms in Erlang are unique identifiers represented as integers internally. All a
 * `atom_text`: contains the string representation of the atoms
 * `atom_tab`: stores the atom table itself
 * `atom_entry`: allocates memory for each atom's metadata
+
+## 12 Garbage Collection
